@@ -1,0 +1,20 @@
+CREATE DATABASE hospital_db;
+
+USE hospital_db;
+
+CREATE TABLE patients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    address VARCHAR(255),
+    contact VARCHAR(15),
+    medical_history TEXT
+);
+
+CREATE TABLE appointments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT,
+    doctor VARCHAR(100),
+    appointment_date DATE,
+    appointment_time TIME,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
